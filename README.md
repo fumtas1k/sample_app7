@@ -17,27 +17,27 @@
 その後、次のコマンドで必要になる RubyGems をインストールします。
 
 ```
-$ gem install bundler -v 2.2.17
-$ bundle _2.2.17_ config set --local without 'production'
-$ bundle _2.2.17_ install
+$ gem install
+$ bundle install
 ```
 
 その後、データベースへのマイグレーションを実行します。
 
 ```
+$ rails db:create
 $ rails db:migrate
 ```
 
 最後に、テストを実行してうまく動いているかどうか確認してください。
 
 ```
-$ rails test
+$ bin/rspec
 ```
 
 テストが無事に通ったら、Railsサーバーを立ち上げる準備が整っているはずです。
 
 ```
-$ rails server
+$ rails s
 ```
 
 詳しくは、[*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
