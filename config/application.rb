@@ -30,5 +30,10 @@ module SampleApp7
       request_specs: false
       g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
+
+    config.generators do |g|
+      g.helper false
+      g.skip_routes true
+    end
   end
 end
