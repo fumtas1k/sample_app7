@@ -10,6 +10,7 @@ document.addEventListener("turbo:load", () => {
   navLinks.forEach(navLink => {
     if (navLink.href === nowHref) {
       navLink.classList.add("active");
+      navLink.setAttribute("aria-current", "page");
     }
   });
 });
