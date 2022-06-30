@@ -24,7 +24,8 @@ RSpec.describe "StaticPages", type: :system do
       end
 
       it "設定したタイトルが表示される" do
-        expect(page).to have_title "Home | Ruby on Rails Tutorial Sample App"
+        expect(page).to have_title "Ruby on Rails Tutorial Sample App"
+        expect(page).not_to have_title "Home"
       end
     end
   end
