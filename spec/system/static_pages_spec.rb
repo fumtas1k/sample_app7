@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe :static_pages, type: :system do
+RSpec.describe "static_pages", type: :system do
   describe "root" do
     context "rootにアクセスした場合" do
       before do
@@ -82,6 +82,7 @@ RSpec.describe :static_pages, type: :system do
     before do
       visit root_path
     end
+
     context "ルートパスにアクセスした場合" do
       it "ルートのリンクがある" do
         expect(page).to have_link "sample app", href: root_path
