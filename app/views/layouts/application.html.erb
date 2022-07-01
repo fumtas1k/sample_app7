@@ -13,8 +13,15 @@
   <body>
     <%= render "layouts/header" %>
     <main>
+      <% flash.each do |type, msg| %>
+        <div class="alert alert-<%= type %> d-flex justify-content-between">
+          <%= content_tag(:div, msg, class: "msg") %>
+          <div class="cross">x</div>
+        </div>
+      <% end %>
       <div class="container">
         <%= yield %>
+        <%= debug(params) if Rails.env.development? %>
       </div>
     </main>
     <%= render "layouts/footer" %>

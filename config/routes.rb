@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get '/help', to: 'static_pages#help'
   get '/home', to: 'static_pages#home'
 
+  resources :users, except: %i[new]
   get '/signup', to: 'users#new'
 end
