@@ -19,7 +19,6 @@ https://radiant-coast-26743.herokuapp.com/
 その後、次のコマンドで必要になる RubyGems をインストールします。
 
 ```
-$ gem install
 $ bundle install
 ```
 
