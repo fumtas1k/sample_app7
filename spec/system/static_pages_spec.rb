@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "StaticPages", type: :system do
+RSpec.describe "static_pages", type: :system do
   describe "root" do
     context "rootにアクセスした場合" do
       before do
@@ -16,7 +16,7 @@ RSpec.describe "StaticPages", type: :system do
   describe "home" do
     context "homeにアクセスした場合" do
       before do
-        visit static_pages_home_path
+        visit home_path
       end
 
       it "homeページが表示される" do
@@ -24,7 +24,7 @@ RSpec.describe "StaticPages", type: :system do
       end
 
       it "設定したタイトルが表示される" do
-        expect(page).to have_title "Ruby on Rails Tutorial Sample App"
+        expect(page).to have_title full_title
         expect(page).not_to have_title "Home"
       end
     end
@@ -33,7 +33,7 @@ RSpec.describe "StaticPages", type: :system do
   describe "help" do
     context "helpにアクセスした場合" do
       before do
-        visit static_pages_help_path
+        visit help_path
       end
 
       it "helpページが表示される" do
@@ -41,7 +41,7 @@ RSpec.describe "StaticPages", type: :system do
       end
 
       it "設定したタイトルが表示される" do
-        expect(page).to have_title "Help | Ruby on Rails Tutorial Sample App"
+        expect(page).to have_title full_title("Help")
       end
     end
   end
@@ -49,7 +49,7 @@ RSpec.describe "StaticPages", type: :system do
   describe "about" do
     context "aboutにアクセスした場合" do
       before do
-        visit static_pages_about_path
+        visit about_path
       end
 
       it "aboutページが表示される" do
@@ -57,7 +57,55 @@ RSpec.describe "StaticPages", type: :system do
       end
 
       it "設定したタイトルが表示される" do
-        expect(page).to have_title "About | Ruby on Rails Tutorial Sample App"
+        expect(page).to have_title full_title("About")
+      end
+    end
+  end
+
+  describe "contact" do
+    context "contactにアクセスした場合" do
+      before do
+        visit contact_path
+      end
+
+      it "aboutページが表示される" do
+        expect(page).to have_content "Contact"
+      end
+
+      it "設定したタイトルが表示される" do
+        expect(page).to have_title full_title("Contact")
+      end
+    end
+  end
+
+  describe "layout links" do
+    before do
+      visit root_path
+    end
+
+    context "ルートパスにアクセスした場合" do
+      it "ルートのリンクがある" do
+        expect(page).to have_link "sample app", href: root_path
+      end
+
+      it "Homeのリンクがある" do
+        expect(page).to have_link "Home", href: home_path
+      end
+
+      it "Helpのリンクがある" do
+        expect(page).to have_link "Help", href: help_path
+      end
+
+      it "Aboutのリンクがある" do
+        expect(page).to have_link "About", href: about_path
+      end
+
+      it "Contactのリンクがある" do
+        expect(page).to have_link "Contact", href: contact_path
+      end
+
+      it "Sign upのリンクがある" do
+        expect(page).to have_link "Sign up", href: signup_path
       end
     end
   end
