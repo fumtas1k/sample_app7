@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "StaticPages", type: :system do
+RSpec.describe :static_pages, type: :system do
   describe "root" do
     context "rootにアクセスした場合" do
       before do
