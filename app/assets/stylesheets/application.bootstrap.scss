@@ -1,6 +1,13 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
+/* mixins, variables, etc. */
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /* typography */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -82,4 +89,14 @@ header {
   li {
     padding: 0 5px;
   }
+}
+
+/* miscellaneous */
+.debug_dump {
+  display: block;
+  background-color: #eaeaea;
+  width: 100%;
+  margin-top: 45px;
+  padding: 10px;
+  @include box_sizing;
 }
