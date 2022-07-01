@@ -5,7 +5,7 @@ User.find_or_create_by(email: "example@railstutorial.org") do |user|
   user.password = "password"
 end
 
-n.times do |i|
+n.times do
   email = Faker::Internet.unique.email
   User.find_or_create_by(email: email) do |user|
     user.name = Faker::Name.name

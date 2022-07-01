@@ -28,27 +28,29 @@ RSpec.describe "user", type: :system do
 
     context "不正な入力をした場合" do
       let(:user) { build(:user, name: " ", email: "user@invalid", password: "foo", password_confirmation: "bar") }
+
       it "エラーメッセージが表示され登録されない" do
-        expect {
+        expect do
           click_on "commit"
           expect(page).to have_css "#error_explanation"
           expect(page).to have_content I18n.t("errors.messages.blank")
           expect(page).to have_content I18n.t("errors.messages.invalid")
           expect(page).to have_content I18n.t("errors.messages.too_short", count: 6)
           expect(page).to have_content I18n.t("errors.messages.confirmation", attribute: User.human_attribute_name(:password))
-        }.not_to change(User, :count)
+        end.not_to change(User, :count)
       end
     end
 
     context "正しい入力をした場合" do
       let(:user) { build(:user) }
+
       it "登録され、showページにリダイレクトする" do
-        expect {
+        expect do
           click_on "commit"
           sleep 0.2
-          expect(current_path).to eq user_path(User.find_by(email: user.email))
+          expect(page).to have_current_path user_path(User.find_by(email: user.email))
           find ".alert", text: "Welcome to the Sample App!"
-        }.to change(User, :count).by(1)
+        end.to change(User, :count).by(1)
       end
     end
   end
