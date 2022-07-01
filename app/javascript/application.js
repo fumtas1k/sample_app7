@@ -14,3 +14,13 @@ document.addEventListener("turbo:load", () => {
     }
   });
 });
+
+/* flashの削除ボタン追加 */
+document.addEventListener("turbo:load", () => {
+  const flashes = document.querySelectorAll(".cross");
+  flashes.forEach(flash => {
+    flash.addEventListener("click", () => {
+      flash.parentNode.classList.add("d-none");
+    });
+  });
+});
