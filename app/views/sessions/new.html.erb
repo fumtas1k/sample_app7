@@ -1,0 +1,16 @@
+<% provide(:title, "Login") %>
+<h1>Log in</h1>
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
+      <%= f.email_field :email, class: "form-control", required: true, placeholder: User.human_attribute_name(:email) %>
+      <%= f.password_field :password, class: "form-control", required: true, placeholder: User.human_attribute_name(:password) %>
+      <div class="d-grid d-block">
+        <%= f.submit t("helpers.submit.login"), class:"btn btn-primary d-block" %>
+      </div>
+    <% end %>
+
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  </div>
+</div>

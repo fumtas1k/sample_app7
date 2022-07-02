@@ -25,7 +25,7 @@ RSpec.describe "static_pages", type: :system do
 
       it "設定したタイトルが表示される" do
         expect(page).to have_title full_title
-        expect(page).not_to have_title "Home"
+        expect(page).not_to have_title I18n.t("views.header.home")
       end
     end
   end
@@ -37,7 +37,7 @@ RSpec.describe "static_pages", type: :system do
       end
 
       it "helpページが表示される" do
-        expect(page).to have_content "Help"
+        expect(page).to have_content I18n.t("views.header.help")
       end
 
       it "設定したタイトルが表示される" do
@@ -69,7 +69,7 @@ RSpec.describe "static_pages", type: :system do
       end
 
       it "aboutページが表示される" do
-        expect(page).to have_content "Contact"
+        expect(page).to have_content I18n.t("views.footer.about")
       end
 
       it "設定したタイトルが表示される" do
@@ -89,19 +89,19 @@ RSpec.describe "static_pages", type: :system do
       end
 
       it "Homeのリンクがある" do
-        expect(page).to have_link "Home", href: home_path
+        expect(page).to have_link I18n.t("views.header.home"), href: home_path
       end
 
       it "Helpのリンクがある" do
-        expect(page).to have_link "Help", href: help_path
+        expect(page).to have_link I18n.t("views.header.help"), href: help_path
       end
 
       it "Aboutのリンクがある" do
-        expect(page).to have_link "About", href: about_path
+        expect(page).to have_link I18n.t("views.footer.about"), href: about_path
       end
 
       it "Contactのリンクがある" do
-        expect(page).to have_link "Contact", href: contact_path
+        expect(page).to have_link I18n.t("views.footer.contact"), href: contact_path
       end
 
       it "Sign upのリンクがある" do

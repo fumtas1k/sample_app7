@@ -73,4 +73,5 @@ RSpec.configure do |config|
   end
   config.include FactoryBot::Syntax::Methods
   config.include ApplicationHelper, type: :system
+  config.include SessionsHelper, type: :system
 end

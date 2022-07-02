@@ -15,6 +15,24 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: 確認用パスワード
+  views:
+    header:
+      home: ホーム
+      help: ヘルプ
+      users: ユーザー
+      profile: ユーザー情報
+      settings: 設定
+      log_out: ログアウト
+      log_in: ログイン
+    footer:
+      about: このアプリについて
+      contact: 問い合わせ
+      news: ニュース
+    users:
+      index:
+    sessions:
+      new:
+        login: ログイン
   date:
     abbr_day_names:
     - 日
@@ -153,6 +171,7 @@ ja:
       create: 登録
       submit: 保存
       update: 更新
+      login: ログイン
   number:
     currency:
       format:
